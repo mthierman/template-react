@@ -1,8 +1,9 @@
 /** @type {import('prettier').Config} */
 
-module.exports = {
+export default {
     tabWidth: 4,
     bracketSameLine: true,
+    quoteProps: "consistent",
     overrides: [
         {
             files: ["*.yml", "*.yaml"],

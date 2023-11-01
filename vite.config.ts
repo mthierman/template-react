@@ -2,30 +2,38 @@ import { defineConfig } from "vite";
 import path from "path";
 import react from "@vitejs/plugin-react-swc";
 
-export default defineConfig(({ command, mode, ssrBuild }) => {
-    if (command === "serve") {
-        const cert = path.resolve("../.cert/localhost.pfx");
-        const passphrase = "localhost";
-        return {
-            plugins: [react()],
-            server: {
-                port: 8000,
-                https: {
-                    pfx: cert,
-                    passphrase: passphrase,
+const defaults = {
+    plugins: [react()],
+    base: "./",
+    root: "src",
+    build: {
+        outDir: "../dist",
+    },
+};
+
+const server = {
+    port: 8000,
+    https: {
+        pfx: path.resolve("../.cert/localhost.pfx"),
+        passphrase: "localhost",
+    },
+};
+
+export default defineConfig(({ mode }) => {
+    switch (mode) {
+        case "development":
+            return {
+                ...defaults,
+                server: {
+                    ...server,
                 },
-            },
-            preview: {
-                port: 8000,
-                https: {
-                    pfx: cert,
-                    passphrase: passphrase,
+                preview: {
+                    ...server,
                 },
-            },
-        };
-    } else {
-        return {
-            plugins: [react()],
-        };
+            };
+        default:
+            return {
+                ...defaults,
+            };
     }
 });
