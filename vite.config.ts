@@ -19,7 +19,7 @@ const server = {
     },
 };
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(async ({ mode }) => {
     switch (mode) {
         case "development":
             return {
