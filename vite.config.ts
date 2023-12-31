@@ -1,17 +1,17 @@
-import { defineConfig } from "vite";
+import { defineConfig, UserConfig } from "vite";
 import path from "path";
 import react from "@vitejs/plugin-react-swc";
 
-const defaults = {
+const defaults: UserConfig = {
     plugins: [react()],
     base: "./",
     root: "src",
     build: {
-        outDir: "../dist",
+        outDir: "../build",
     },
 };
 
-const server = {
+const server: UserConfig["server"] = {
     port: 8000,
     https: {
         pfx: path.resolve("../.cert/localhost.pfx"),
@@ -19,17 +19,14 @@ const server = {
     },
 };
 
+// https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
     switch (mode) {
         case "development":
             return {
                 ...defaults,
-                server: {
-                    ...server,
-                },
-                preview: {
-                    ...server,
-                },
+                server: { ...server },
+                preview: { ...server },
             };
         default:
             return {

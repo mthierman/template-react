@@ -6,12 +6,15 @@
     "scripts": {
         "dev": "vite",
         "host": "vite --host",
-        "build": "vite build",
-        "watch": "vite build --watch",
+        "build": "tsc && vite build",
+        "watch": "tsc && vite build --watch",
         "preview": "vite preview"
     },
+    "dependencies": {
+        "react-dom": "latest",
+        "react": "latest"
+    },
     "devDependencies": {
-        "@tailwindcss/typography": "latest",
         "@types/node": "latest",
         "@types/react-dom": "latest",
         "@types/react": "latest",
@@ -21,10 +24,9 @@
         "postcss": "latest",
         "prettier-plugin-tailwindcss": "latest",
         "prettier": "latest",
-        "react-dom": "latest",
-        "react": "latest",
         "rollup": "latest",
         "tailwindcss": "latest",
+        "tsx": "latest",
         "typescript": "latest",
         "vite": "latest"
     }
