@@ -28,6 +28,9 @@ devDependencies:
   autoprefixer:
     specifier: latest
     version: 10.4.16(postcss@8.4.32)
+  esbuild:
+    specifier: latest
+    version: 0.19.11
   postcss:
     specifier: latest
     version: 8.4.32
