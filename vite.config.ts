@@ -9,6 +9,12 @@ const defaults: UserConfig = {
     build: {
         outDir: "../build",
     },
+    resolve: {
+        alias: {
+            "@components": path.resolve("src/components"),
+            "@css": path.resolve("src/css"),
+        },
+    },
 };
 
 const server: UserConfig["server"] = {
