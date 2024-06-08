@@ -4,21 +4,37 @@ import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
+import react from "eslint-plugin-react";
+import reactJsxRuntime from "eslint-plugin-react/configs/jsx-runtime.js";
+import reactRecommended from "eslint-plugin-react/configs/recommended";
+
 export default tseslint.config(
     eslint.configs.recommended,
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
+    reactRecommended,
+    reactJsxRuntime,
     {
         ignores: ["**/dist/**"],
     },
     {
+        plugins: {
+            react,
+            // reactHooks,
+        },
+        rules: {
+            // ...reactHooks.configs.recommended.rules,
+        },
         languageOptions: {
             globals: {
                 ...globals.browser,
             },
             parserOptions: {
-                project: ["tsconfig.vite.json"],
+                project: ["./tsconfig.vite.json"],
                 tsconfigRootDir: import.meta.dirname,
+                ecmaFeatures: {
+                    jsx: true,
+                },
             },
         },
     },
@@ -29,7 +45,7 @@ export default tseslint.config(
                 ...globals.node,
             },
             parserOptions: {
-                project: ["tsconfig.node.json"],
+                project: ["./tsconfig.node.json"],
                 tsconfigRootDir: import.meta.dirname,
             },
         },
