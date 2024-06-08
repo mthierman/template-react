@@ -20,6 +20,8 @@
         "@types/react": "latest",
         "@vitejs/plugin-react-swc": "latest",
         "autoprefixer": "latest",
+        "eslint-plugin-react-hooks": "latest",
+        "eslint-plugin-react": "latest",
         "eslint": "latest",
         "globals": "latest",
         "postcss-load-config": "latest",
