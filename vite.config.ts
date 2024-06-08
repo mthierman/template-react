@@ -1,42 +1,39 @@
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { defineConfig, UserConfig } from "vite";
+import { resolve } from "path";
+import { CommonServerOptions, UserConfig, defineConfig } from "vite";
 
-const defaults: UserConfig = {
+const userConfig: UserConfig = {
     plugins: [react()],
-    base: "./",
-    root: "src",
-    build: {
-        outDir: "../build",
-    },
     resolve: {
         alias: {
-            "@components": path.resolve("src/components"),
-            "@css": path.resolve("src/css"),
+            components: resolve("src/components"),
+            css: resolve("src/css"),
         },
     },
 };
 
-const server: UserConfig["server"] = {
+const commonServerOptions: CommonServerOptions = {
     port: 8000,
     https: {
-        pfx: path.resolve("../.cert/localhost.pfx"),
+        pfx: resolve("../.cert/localhost.pfx"),
         passphrase: "localhost",
     },
 };
 
 // https://vitejs.dev/config/
-export default defineConfig(async ({ mode }) => {
-    switch (mode) {
-        case "development":
+export default defineConfig(({ command }) => {
+    switch (command) {
+        case "serve": {
             return {
-                ...defaults,
-                server: { ...server },
-                preview: { ...server },
+                ...userConfig,
+                server: { ...commonServerOptions },
+                preview: { ...commonServerOptions },
             };
-        default:
+        }
+        default: {
             return {
-                ...defaults,
+                ...userConfig,
             };
+        }
     }
 });
