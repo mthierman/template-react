@@ -20,14 +20,14 @@
         "@types/react": "latest",
         "@vitejs/plugin-react-swc": "latest",
         "autoprefixer": "latest",
-        "esbuild": "latest",
+        "eslint": "latest",
+        "globals": "latest",
         "postcss-load-config": "latest",
         "postcss": "latest",
         "prettier-plugin-tailwindcss": "latest",
         "prettier": "latest",
-        "rollup": "latest",
         "tailwindcss": "latest",
-        "tsx": "latest",
+        "typescript-eslint": "latest",
         "typescript": "latest",
         "vite": "latest"
     }
