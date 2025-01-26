@@ -6,7 +6,7 @@ import { CommonServerOptions, UserConfig, defineConfig } from "vite";
 const userConfig: UserConfig = {
     base: "./",
     plugins: [react(), tailwindcss()],
-        resolve: {
+    resolve: {
         alias: {
             components: resolve("src/components"),
             css: resolve("src/css"),
