@@ -9,7 +9,7 @@ const userConfig: UserConfig = {
     resolve: {
         alias: {
             components: resolve("src/components"),
-            css: resolve("src/css"),
+            styles: resolve("src/styles"),
         },
     },
 };

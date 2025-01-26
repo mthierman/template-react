@@ -8,8 +8,8 @@
         "skipLibCheck": true,
         "types": ["vite/client"],
         "paths": {
-            "components/*": ["src/components/*"],
-            "css/*": ["src/css/*"]
+            "components/*": ["./src/components/*"],
+            "styles/*": ["./src/styles/*"]
         },
 
         /* Bundler mode */
