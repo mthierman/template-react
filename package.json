@@ -4,10 +4,11 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
+        "check": "tsc -b",
         "dev": "vite",
         "host": "vite --host",
-        "build": "tsc && vite build",
-        "watch": "tsc && vite build --watch",
+        "build": "tsc -b && vite build",
+        "watch": "vite build --watch",
         "preview": "vite preview"
     },
     "dependencies": {
@@ -15,21 +16,15 @@
         "react": "latest"
     },
     "devDependencies": {
+        "@tailwindcss/vite": "latest",
         "@types/node": "latest",
         "@types/react-dom": "latest",
         "@types/react": "latest",
         "@vitejs/plugin-react-swc": "latest",
-        "autoprefixer": "latest",
-        "eslint-plugin-react-hooks": "latest",
-        "eslint-plugin-react": "latest",
-        "eslint": "latest",
         "globals": "latest",
-        "postcss-load-config": "latest",
-        "postcss": "latest",
         "prettier-plugin-tailwindcss": "latest",
         "prettier": "latest",
         "tailwindcss": "latest",
-        "typescript-eslint": "latest",
         "typescript": "latest",
         "vite": "latest"
     }
